@@ -56,10 +56,12 @@ LOCAL_SRC_FILES:= \
 	
 #   cms.c ec.c s_server.c
 
-LOCAL_SHARED_LIBRARIES := \
-	libssl \
-	libcrypto 
-
+#LOCAL_SHARED_LIBRARIES := \
+#	libssl \
+#	libcrypto
+LOCAL_STATIC_LIBRARIES := \
+    libssl\
+    libcrypto
 LOCAL_C_INCLUDES := \
 	$(NDK_PROJECT_PATH) \
 	$(NDK_PROJECT_PATH)/include \
@@ -77,5 +79,5 @@ LOCAL_CFLAGS += -DOPENSSL_NO_DTLS1
 LOCAL_MODULE:= openssl
 
 LOCAL_MODULE_TAGS := tests
-
+LOCAL_LDLIBS += -lz
 include $(BUILD_EXECUTABLE)
